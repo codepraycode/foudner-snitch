@@ -1,8 +1,6 @@
-# ChatGPT test interface
+# Any Company Founder Snitch.
 
-<center>
-    <img src="./assets/images/openai.svg" height=100 alt="Chat GPT"/>
-    </center>
+<h1 align="center"><img src="./assets/images/openai.svg" height=100 alt="Chat GPT"/></h1>
 
 This simple app expects a company's name, interacts with ChatGPT API and tells that company's founder.
 
