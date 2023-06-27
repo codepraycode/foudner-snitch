@@ -1,0 +1,247 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+
+body {
+    background-color: whitesmoke;
+    color:rgb(97, 95, 95);
+}
+
+:root {
+    --width: 800px;
+    --image-text-gap: 3rem; /* Space between image and text content*/
+    --message-bg-color: 105, 104, 104;
+    --message-color: 105, 104, 104;
+}
+
+
+/* Utility class*/
+.debug {
+    outline: 3px solid rgb(146, 33, 33);
+    outline-offset: 1px;
+}
+
+
+main {
+    width: var(--width);
+    max-width: 100%;
+    margin-inline: auto;
+    min-height: 98vh;
+    position: relative;
+
+    padding-bottom: 10rem;
+    padding-inline: .6rem;
+}
+
+
+.container--display h2,
+.container--display p {
+    display: none;
+}
+
+.container--display[data-empty="true"] h2,
+.container--display[data-empty="true"] p{
+    display: block;
+}
+
+.container--display[data-empty="true"] {
+    position: relative;
+    
+    width: 500px;
+    height: 500px;
+
+    position: relative;
+    margin: auto;
+
+    text-align: center;
+    padding-top: 11rem;
+
+    opacity: .7;
+}
+
+/* ===================== */
+/*    Message style     */
+/* ===================== */
+.message {
+    max-width: 45%;
+    position: relative;
+    margin-block: 8px;
+    background:rgba(211, 208, 208, 0.521);
+    border-radius: .8rem;
+    padding: 1.5rem 1rem 1rem 1rem;
+}
+
+@media (max-width: 790px) {
+    .message { 
+        max-width: 60%;
+    }
+}
+
+.message::after,
+.message::before {
+    position: absolute;
+
+    width: 28px;
+    aspect-ratio: 1;
+
+    border-radius: 50%;
+
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    top: .7rem;
+}
+
+/* User message */
+.message:not(.message--ai) {
+    padding-right: var(--image-text-gap, .3rem);
+    margin-left: auto;
+}
+
+.message:not(.message--ai)::after {
+    content: "";
+    background-image: url('./assets/images/user.svg');
+    top: .7rem;
+    right: .5rem;
+
+}
+
+.message.message--ai {
+    padding-left: var(--image-text-gap, .3rem);
+}
+
+.message.message--ai::before {
+    content: "";
+    background-image: url('./assets/images/openai.svg');
+    
+    left: .5rem;
+
+}
+
+
+/* =========================== */
+/*    Message Input style     */
+/* ========================== */
+
+
+
+
+.container--input {
+    position: fixed;
+    width: var(--width);
+    max-width: 100%;
+    bottom: 0rem;    
+
+    z-index: 1;
+
+    backdrop-filter: blur(7px);
+    height: 120px;
+}
+.container--input .input {
+    position: relative;
+    z-index: 1;
+    width: 90% !important;
+    margin-inline: auto;
+}
+
+.container--input .input::before {
+    content: "";
+    position: absolute;
+    top: -9px;
+    left: 0;
+
+    width: 100%;
+    height: 10px;
+
+    background-color: rgba(196, 192, 192, 0.849);
+
+    filter: blur(10px);
+    z-index: -1;
+}
+
+.container--input input {
+
+    /* border: 1px solid rgba(196, 192, 192, 0.849); */
+    font-family: inherit;
+    font-size: inherit;
+
+    border:0;
+    padding: 1rem .8rem;
+
+    padding-right: 4rem;
+
+    background-color: rgba(196, 192, 192, 0.849);
+
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    resize: none;
+    min-height: 35px;
+    max-height: 100px;
+    line-height: 20px;
+
+    border-radius: .7rem;
+}
+
+.container--input input:focus {
+    outline: 0;
+}
+
+
+.container--input input::placeholder {
+    color: rgba(141, 140, 140, 0.836);
+}
+
+.container--input button {
+    position: absolute;
+    cursor: pointer;
+
+    top: .3rem;
+    right: .9rem;
+
+    appearance: none;
+
+    display: block;
+    width: 3.5rem;
+    height: 75%;
+    max-width: 35px;
+
+    background-image: url('./assets/images/send.svg');
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: 0;
+
+}
+
+.container--input[data-loading] input {
+    opacity: .6;
+}
+.container--input[data-loading] button {
+    background-image: url('./assets/images/loading.svg');
+    opacity: .3;
+    cursor: not-allowed;
+}
+
+
+.attribute {
+    display: block;
+    margin-inline: auto;
+
+    margin-top: .6rem;
+
+    text-align: center;
+    /* font-style: italic; */
+    opacity: .2;
+}

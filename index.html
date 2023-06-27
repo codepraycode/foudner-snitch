@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="./assets/images/openai.svg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Founder Snith | Test version.</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main>
+        <!-- Display section -->
+        <section class="container container--display" id="display">
+            <h2>Any Company Founder Snitch</h2>
+            <p>
+                A test interface for interacting with AI to tell the founder of a known compnay. Simply enter a company's name below to begin
+            </p>
+
+            <p>
+                You are expected to enter just the company's name e.g Microsoft, Facebook, Apple, Google.
+            </p>
+            <!-- 
+                By default, every message is user's message
+
+                but AI's response is with a modifying task
+             -->
+            
+
+            <!-- <div class="message message--ai">
+                <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea beatae reiciendis corporis aperiam magnam</span>
+            </div> -->
+        </section>
+
+        <!-- Input section -->
+        <section class="container container--input" id="user-input">
+
+            <form class="input">
+                <!-- contenteditable -->
+                <!-- role="textbox" -->
+                <input
+                    id="text-area"
+                    name="company"
+                    placeholder="Enter a company's name"
+                />
+                <button type="submit" id="submit" aria-label="Get founder"></button>
+            </form>
+
+            <p class="attribute">by codepraycode</p>
+        </section>
+    </main>
+
+    <script src="./script.js"></script>
+</body>
+</html>
